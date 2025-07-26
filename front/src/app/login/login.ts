@@ -8,17 +8,19 @@ import { AuthService } from '../services/auth';
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FormsModule], 
-   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+   templateUrl:'./login.html',
+  styleUrls: ['./login.css']
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup; 
-  message: string = ''; 
+  email: string = '';
+  password: string = '';
+  message: string = '';
 
   constructor(
     private fb: FormBuilder, 
     private authService: AuthService,
-    private router: Router
+    public router: Router // <-- cambia 'private' por 'public'
   ) { }
 
   ngOnInit(): void {

@@ -1,25 +1,22 @@
-<h2>Registro de Usuario</h2>
-<form (ngSubmit)="onRegister()">
-  <div>
-    <label for="username">Usuario:</label>
-    <input type="text" id="username" [(ngModel)]="username" name="username" required>
+<div class="container mt-5" style="max-width: 400px;">
+  <h2 class="mb-4 text-center">Registro de Usuario</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="card p-4 shadow">
+    <div class="mb-3">
+      <label for="username" class="form-label">Usuario:</label>
+      <input type="text" id="username" formControlName="username" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" id="email" formControlName="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña:</label>
+      <input type="password" id="password" formControlName="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Registrar</button>
+    <div *ngIf="message" class="alert alert-info mt-3 text-center">{{ message }}</div>
+  </form>
+  <div class="text-center mt-3">
+    <a routerLink="/login" class="btn btn-link">¿Ya tienes cuenta? Inicia sesión</a>
   </div>
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" [(ngModel)]="email" name="email" required>
-  </div>
-  <div>
-    <label for="password">Contraseña:</label>
-    <input type="password" id="password" [(ngModel)]="password" name="password" required>
-  </div>
-  <div>
-    <label for="role">Rol:</label>
-    <select id="role" [(ngModel)]="role" name="role">
-      <option value="user">Usuario</option>
-      <option value="admin">Administrador</option>
-    </select>
-  </div>
-  <button type="submit">Registrar</button>
-</form>
-<p *ngIf="message">{{ message }}</p>
-<p>register works!</p>
+</div>

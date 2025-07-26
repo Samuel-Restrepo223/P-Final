@@ -8,12 +8,17 @@ import { AuthService } from '../services/auth';
   selector: 'app-register',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FormsModule], 
-  templateUrl: './register.component.html',
+  templateUrl: './register.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup; 
   message: string = '';
+
+  username: string = '';
+  email: string = '';
+  password: string = '';
+  role: string = 'user';
 
   constructor(
     private fb: FormBuilder, 

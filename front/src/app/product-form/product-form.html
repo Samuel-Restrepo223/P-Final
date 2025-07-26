@@ -1,1 +1,19 @@
-<p>product-form works!</p>
+<div class="container mt-5" style="max-width: 500px;">
+  <h2 class="mb-4 text-center">Crear Producto</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="card p-4 shadow">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre:</label>
+      <input type="text" id="name" formControlName="name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Precio:</label>
+      <input type="number" id="price" formControlName="price" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Descripción:</label>
+      <textarea id="description" formControlName="description" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Guardar</button>
+    <div *ngIf="message" class="alert alert-info mt-3 text-center">{{ message }}</div>
+  </form>
+</div>
